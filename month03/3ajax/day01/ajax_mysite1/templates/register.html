@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+</head>
+<script src="/static/js/jquery-1.11.3.js"></script>
+<script src="/static/js/common.js"></script>
+<body>
+{% csrf_token %}
+<p>
+    用户名：<input type="text" id="uname">
+    <span id="show"></span>
+</p>
+<p>
+    密码：<input type="text" id="pwd">
+</p>
+<p>
+    <button id="btn">提交</button>
+</p>
+</body>
+<script>
+    $(function(){
+        $('#btn').click(function(){
+<!--            原生的js的Post提交方式-->
+            /*
+<!--            1 创建xhr对象-->
+            var xhr = createXhr();
+<!--            2 创建请求-->
+            xhr.open('post','/register',true);
+<!--            3 编写回调函数-->
+            xhr.onreadystatechange = function(){
+                if (xhr.readyState == 4 && xhr.status == 200){
+                    alert(xhr.responseText);
+                }
+            };
+<!--            4 POST发送请求之前，设置请求头-->
+            xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+<!--            5 拼接参数(类似于查询字符串的格式)-->
+            var uname = $('#uname').val();
+            var pwd = $('#pwd').val();
+            var csrf=$("[name='csrfmiddlewaretoken']").val();
+            var params = 'uname='+uname+'&pwd='+pwd+'&csrfmiddlewaretoken='+csrf;
+            console.log(params);
+<!--            6 发送请求-->
+            xhr.send(params);
+            */
+<!--            二、jquery方式的post提交-->
+<!--            1 拼接方式-->
+            var uname = $('#uname').val();
+            var pwd = $('#pwd').val();
+            var csrf=$("[name='csrfmiddlewaretoken']").val();
+            var params = 'uname='+uname+'&pwd='+pwd+'&csrfmiddlewaretoken='+csrf;
+<!--            2 通过jquery方式-->
+            $.ajax({
+                url:'/register',
+                type:'post',
+                data:params,
+                success:function(res){
+                    alert(res);
+                }
+            })
+        })
+    })
+
+
+</script>
+</html>

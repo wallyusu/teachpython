@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="key">
+    <button id="btn">显示</button>
+    <h1 id="show">xxx</h1>
+
+    <script>
+        // 通过id查找页面元素
+        // 获取文本框的值   xx.value
+        // 要求：当点击鼠标按钮显示的时候，将文本框的值放在页面元素h1中
+        // h1.innerHTML=xx
+        var key = 
+        document.getElementById('key');
+        var btn = 
+        document.getElementById('btn');
+        var show =
+        document.getElementById('show');
+
+        // console.log(key)
+        // console.log(btn)
+        // console.log(show)
+        btn.onclick = function(){
+            show.innerText = key.value
+        }
+    </script>
+</body>
+</html>

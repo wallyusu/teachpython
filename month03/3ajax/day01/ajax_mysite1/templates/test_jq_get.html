@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test_JQ_GET</title>
+</head>
+<body>
+    <button id="btn">Test_JQ_GET</button>
+    <div id="show"></div>
+</body>
+<script src="/static/js/jquery-1.11.3.js"></script>
+<script>
+<!--    在浏览器加载所有文档元素后，该函数才会执行，确保在jquery代码中使用元素是存在的-->
+    $(function(){
+        $('#btn').click(function(){
+            $.ajax({
+                url:'/test_jq_get_server',
+                type:'get',
+                success:function(res){
+                    $('#show').html(res);
+                }
+            })
+        })
+    })
+</script>
+</html>

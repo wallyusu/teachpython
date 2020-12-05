@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加模板页</title>
+</head>
+<body>
+<h1>
+    第一个Django模板页
+</h1>
+<p>
+    姓名：{{name | upper}}
+</p>
+<p>
+    年龄：{{age | add:10}}
+</p>
+<p>
+    爱好：{{hobby}} | {{hobby.2}}
+</p>
+<p>
+    成绩：{{score}} | {{score.英语}}
+</p>
+<p>
+    朋友：{{person.show}}
+</p>
+<p>
+    打个招呼：{{func1}}
+</p>
+<p>
+    js脚本：{{script | safe}}
+</p>
+{% if age > 18 %}
+<p>已成年</p>
+{% else %}
+<p>盼望长大</p>
+{% endif %}
+
+{% for d in list1 %}
+<p>
+    {{ forloop.counter }} . {{d}}
+</p>
+{% empty %}
+<p>是非成败转头空</p>
+{% endfor %}
+</body>
+</html>

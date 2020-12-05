@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        p{
+            width: 300px;
+        }
+        span{
+            background-color: orangered;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="key">
+    <button id="btn">查找</button>
+    <p id="text">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo totam, veniam in natus, voluptatem tempora saepe fugit aspernatur qui labore iure aut quos ad optio ratione id quod et nam.
+        Aperiam commodi, veritatis ipsam eveniet eos accusamus veniam! Cupiditate, distinctio. Non ducimus, sapiente odit laudantium est labore eius fugiat, libero ex eligendi dolorum nisi soluta harum doloremque impedit illo amet!
+        Sunt doloribus, quo doloremque ipsam tenetur magnam modi odio laborum maxime saepe quidem minima neque at architecto rerum cumque quod fugit unde voluptas ut sequi totam et! Ipsam, dicta et.
+    </p>
+    <script>
+        // 用户在文本框中输入内容
+        // 点击查找 在页面（p元素）中查找用户输入的内容，如果找不到 弹框提示
+        var key = 
+        document.getElementById('key')
+        var btn = 
+        document.getElementById('btn')
+        var text = 
+        document.getElementById('text')
+        btn.onclick = function (){
+            // 将用户输入的内容构建成正则表达式对象
+            var reg = new RegExp(key.value,'ig'); // i忽略大小写 g是全局查找
+            // 检测p标签中是否有符合正则表达式的内容
+            var res = reg.test(text.innerText)
+            // 如果没有 弹框提示
+            if(!res){
+                alert('未找到合适的内容')
+                return // 不继续执行函数
+            }
+            // 如果有匹配
+            // 如果找到了，高亮显示内容（将普通的文本替换成带有span标签的文本 然后放入p元素中）
+            // console.log('bala bala')
+            // 通过replace函数 匹配用户输入的内容，替换成带有span的文本
+            // 'sit' --> '<span>sit</span>'
+            // key.value
+            // 将替换好的字符串放入页面中的p标签显示
+            var str = text.innerText.replace(reg,`<span>${key.value}</span>`)
+            text.innerHTML = str
+        } 
+        
+        
+    </script>
+</body>
+</html>

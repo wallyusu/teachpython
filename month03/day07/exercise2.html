@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>登录模态框</title>
+    <style>
+        #shadow{
+            position: fixed;
+            background-color:#000;
+            /* 不透明度 */
+            opacity: 0.5;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+        #mod{
+            width: 400px;
+            height: 460px;
+            background-color: #fff;
+            /* 设置圆角 */
+            border-radius: 5px;
+            margin: 0 auto;
+            position: relative;
+            top: 50%;
+            margin-top: -230px;
+        
+        }
+        #close{
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            font-size: 20px;
+            font-family: monospace;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">登录</button>
+    <div id="shadow" style="display: none">
+        <div id="mod">
+            <span id="close">x</span>
+        </div>
+    </div>
+    <script>
+        var btn = 
+        document.getElementById('btn')
+        var shadow = 
+        document.getElementById('shadow')
+        var close = 
+        document.getElementById('close')
+        // 点击登录 显示shadow  
+        btn.onclick = function(){
+            shadow.style = 'display:block'
+        }
+        // 点击x(close) 隐藏shadow
+        close.onclick = function(){
+            shadow.style = 'display:none'
+        }
+
+    </script>
+</body>
+</html>

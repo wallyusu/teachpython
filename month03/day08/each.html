@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>遍历元素</title>
+</head>
+<body>
+    <ul>
+        <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+    </ul>
+    <script src="../day08/js/jquery.min.js"></script>
+    <script>
+        // i表示当前的索引值
+        // e表示当前的页面元素 dom对象
+        // window.onload = function(){
+        //     $('li').each(function(i,e){
+        //     console.log(e.innerHTML)
+        // })
+        // }
+
+        // $(function(){
+        //     $('li').each(function(i,e){
+        //     console.log(e.innerHTML)
+        // })
+        // console.log('文档加载完成后执行')
+        // }) 
+
+        // 事件委托
+        // 当为动态生成的页面元素添加事件时，
+        // 如果事件绑定时页面元素还没有生成，此时不会绑定事件，当页面元素生成时不会再次执行绑定事件的代码，绑定失败
+        // 可以通过on()函数将事件委托给动态生成元素的父元素，然后在函数中制定出发事件的选择器，当父元素触发事件时，会检测出发时间的对象是否为指定的内容，如果是执行，不是就不执行
+        // $('body').on('click','h1',
+        // function(){
+        //     alert('hello world')
+        // })
+        
+       
+        // var arr = [0,1,2,3,4,5,6]
+        // $.each(arr,function(i,e){
+        //     console.log(e)
+        // })
+
+        // for (var i = 0;i<$('li').length;i++){
+        //     console.log($('li')[i].innerHTML)
+        // }
+    </script>
+</body>
+</html>

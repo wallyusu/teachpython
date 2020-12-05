@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Array 数组</title>
+</head>
+<body>
+    <script>
+        var arr = [1,2,3,4,5];
+        // 数组索引值从0开始一次递增 没有负数
+        // console.log(arr[1])
+        // console.log(arr[-1]) // 报错undefind
+        // console.log(arr.length-1)
+        // arr[2] = 3.14
+        // console.log(arr) // [1, 2, 3.14, 4, 5] 数组是可变的
+        // 无法使用切片
+        // console.log(arr[2:5])
+        // arr[2:5] 数组中索引值本质上是字符串 所以不支持切片
+        // 可以使用slice()代替
+        // var res = arr.slice(2,5)
+        // console.log(res)
+
+        // 数组可以是不连续的
+        var arr = [0,1,2,3,4,5];
+        // console.log(arr[10]); // undefined
+        // arr[10] = 10
+        // console.log(arr);
+
+        // 正向遍历
+        // for (var i = 0;i<arr.length;i++){
+        //     console.log(arr[i])
+        //  
+        // 反向遍历
+        // for (var i = arr.length-1;i>-1;i--){
+        //     console.log(arr[i])
+        // }
+
+        for (var i in arr){
+            // for in 循环获取的是索引值
+            console.log(i,arr[i])
+        }
+
+
+    </script>
+</body>
+</html>

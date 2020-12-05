@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>练习2</title>
+    <style>
+        #banner{
+            width: 179px;
+            border: 1px solid #000;
+            position: relative;
+        }
+        /* 低价
+            宽 34px 高 20px 
+            红色背景 白色字体
+            字体大小 14px
+            距离父元素左边框 2px
+            边框圆角 左上左下直角 右上右下圆角
+            字体水平居中 垂直居中
+         */
+        #sale{
+            width:34px;
+            height: 20px;
+            background-color: #e4393c;
+            color:white;
+            font-size: 14px;
+            /* position: absolute; */
+            margin-left: 2px;
+            /* left: 2px;
+            top: 0; */
+            border-radius: 0px 2px 2px 0;
+            text-align: center;
+            line-height: 20px;
+
+        }
+        .baby{
+            font-size: 18px;
+            margin-left: 44px;
+
+        }
+        .yuan{
+            text-align: center;
+            color: #999;
+        }
+        .image{
+            /* 文本水平居中 对图片也生效 */
+            /* text-align: center; */
+            /* 设置元素div大小和图片一致 让父元素水平居中 图片就相当于水平居中 */
+            width: 89px;
+            height: 95px;
+            margin: 0 auto;
+        }
+         
+    </style>
+</head>
+<body>
+    <div id="banner">
+        <div id="sale">低价</div>
+        <div class="baby">母婴馆</div>
+        <div class="yuan">秒杀低至1元</div>
+        <div class="image">
+            <img src="../imgs/img01.png" alt="">
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>三级联动下拉菜单</title>
+</head>
+
+<body>
+  <select name="" id="prov">
+    <!-- <option value="0">请选择</option> -->
+  </select>
+  <select name="" id="city"></select>
+  <select name="" id="area"></select>
+
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/data.js"></script>
+  <script>
+    // data.js提供的变量 data
+    console.log(data);
+    // 查找页面元素
+    var $prov = $('#prov');
+    var $city = $('#city');
+    var $area = $('#area');
+    // 初始化页面内容
+    $prov.html('<option value="0">请选择</option>');
+    $city.html('<option value="0">请选择</option>');
+    $area.html('<option value="0">请选择</option>');
+    // 休息10:58~11:15
+    // 遍历data 加载省份下拉菜单
+    $.each(data, function (i, prov) {
+      $prov.append(`<option value="${prov.provId}">${prov.provname}</option>`)
+    })
+    // 加载城市 11:30
+    // 当$prov的值发生改变时，加载省份对应的城市
+    // 遍历data 如果下拉菜单$prov的值和data中的当前prov对象的provId相等时 说明找到用户选择的省份对象 可以通过prov.citys获取省份对应的城市 
+    $prov.on('change', function () {
+      if ($prov.val() == 0) {
+        $city.html('<option value="0">请选择</option>');
+        $area.html('<option value="0">请选择</option>');
+      }
+      $.each(data, function (i, prov) {
+        if ($prov.val() == prov.provId) {
+          // console.log(prov.citys)
+          // 每次$prov发生改变时 还原$city下拉菜单
+          $city.html('<option value="0">请选择</option>');
+          $area.html('<option value="0">请选择</option>')
+          // 遍历prov.citys 
+          // 将citys中的对象取出拼接成option 
+          // 添加到$city中
+          $.each(prov.citys, function (i, city) {
+            $city.append(`<option value="${city.cityId}">${city.cityname}</option>`)
+          })
+        }
+      })
+    })
+
+    // 加载地区
+    // 当$city值发生改变时 加载对应的地区
+    // 遍历data 确定当前省份通过省份获取到当前的城市列表，从省份对应的城市列表中获取当前的城市，通过当前城市获取地区列表
+    // 遍历地区列表 将内容添加到$area中
+    $city.on('change', function () {
+      if($city.val() == 0){
+        $area.html('<option value="0">请选择</option>');
+      }
+      $.each(data, function (i, prov) {
+        if ($prov.val() == prov.provId) {
+          $.each(prov.citys, function (i, city) {
+            if ($city.val() == city.cityId) {
+              // console.log(city.areas);
+              $area.html('<option value="0">请选择</option>')
+              $.each(city.areas, function (i, area) {
+                $area.append(`<option value="${area.areaId}">${area.areaname}</option>`)
+              })
+            }
+          })
+        }
+      })
+    })
+
+
+  </script>
+</body>
+
+</html>

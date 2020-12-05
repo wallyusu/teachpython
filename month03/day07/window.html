@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DOM对象</title>
+</head>
+<body>
+    <button id="btn1">启动定时器</button>
+    <button id="btn2">停止定时器</button>
+    <script>
+        // 设置周期性定时器
+        // 点击btn1启动定时器
+        // 点击btn2停止定时器
+        function sayHello(){
+            console.log('hello world');
+        }
+        var btn1 = 
+        document.getElementById('btn1');
+        var btn2 = 
+        document.getElementById('btn2');
+        var timerId = null;
+        btn1.onclick = function(){
+            if (timerId == null){
+                timerId = setInterval(sayHello,1000);
+                console.log(timerId);
+            }
+        }
+        btn2.onclick = function(){
+            clearInterval(timerId);
+            timerId = null;
+        }
+
+        // var timerId = setInterval(sayHello,1000);
+        // console.log(timerId)
+        // clearInterval(timerId)
+
+        // var a = 10;
+        // console.log(window);
+
+        // var res = confirm('确定要删除么？')
+        // console.log(res);
+
+        // function sayHello(){
+        //     console.log('hello world');
+        // }
+            
+    </script>
+</body>
+</html>

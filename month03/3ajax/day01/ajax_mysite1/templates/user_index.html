@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户列表</title>
+</head>
+<body>
+<button id="btn">show data</button>
+<table border="1">
+    <thead>
+    <tr>
+        <th>姓名</th>
+        <th>年龄</th>
+    </tr>
+    </thead>
+    <tbody id="show">
+
+    </tbody>
+</table>
+</body>
+<script src="/static/js/jquery-1.11.3.js"></script>
+<script>
+    $(function(){
+        $('#btn').click(function(){
+            $.ajax({
+                type:'get',
+                url:'/user/all',
+                dataType:'json',
+                success:function(res){
+                    var html=''
+                    $.each(res,function(index,obj){
+                        html+='<tr>';
+                        html+='<td>'+obj.username+'</td>';
+                        html+='<td>'+obj.age+'</td>';
+                        html+='</tr>';
+                    });
+                    $("#show").html(html);
+                }
+            })
+        })
+    })
+
+</script>
+</html>

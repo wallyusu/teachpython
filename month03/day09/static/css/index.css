@@ -1,0 +1,154 @@
+/* 首页样式文件 */
+/* 初始化页面元素样式 */
+body,h1,h2,h3,p,ul,li{
+    padding: 0;
+    margin: 0;
+}
+ul{
+    /* 去掉小圆点 */
+    list-style: none;
+}
+a{
+    /* 去掉超链接下划线 */
+    text-decoration: none;
+}
+img{
+    /* 设置图片为块元素 */
+    display:block;
+}
+body{
+    /* 设置字体样式 */
+    /* font-family: monospace */
+    /* font-size: 16px; */
+    font: 16px monospace;
+}
+/************************************** header ********************************/
+header{
+    width: 100%;
+    height: 80px;
+    background-color: #555;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+}
+nav{
+    /* 控制内容的位置 */
+    /* 宽度 1140px 高度80px nav水平居中 文本垂直居中 */
+    width:1140px;
+    height: 80px;
+    margin: 0 auto;
+    line-height: 80px;
+}
+/* logo 样式 字体大小26px 颜色#cledf2 和其他元素同行显示 */
+.logo{
+    font-size: 26px;
+    float: left;
+}
+.logo>a{
+    color: #c1edf2;
+
+}
+/* 导航列表 ul */
+/* li水平排列 字体颜色 #e5f2f2 鼠标移入时字体颜色变成白色 */
+/* 调整 导航列表和logo的距离80px 调整li之间的距离 */
+nav>ul{
+    float: left;
+    margin-left: 80px;
+}
+nav>ul>li{
+    float: left;
+    padding: 0 20px;
+}
+nav>ul>li>a{
+    color: #e5f2f2;
+}
+nav>ul>li:hover a{
+    color: #fff;
+    cursor: pointer;
+}
+/* 登录注册  靠右侧显示 注册紧贴右边 登录距离右侧70px 字体颜色#e5f2f2 */
+#login,#register{
+    float: right;
+    color: #e5f2f2;
+}
+#login{
+    margin-right: 70px;
+}
+#login:hover,#register:hover{
+    color: #fff;
+    cursor: pointer;
+}
+/* *****************************主体内容************************************** */
+main{
+    width: 1140px;
+    /* height: 600px; */
+    margin: 100px auto 0;
+    /* border: 5px solid red; */
+}
+/* 轮播图 */
+.banner{
+    width: 66%;
+    float: left;
+}
+ul.fader{
+    /* 为内部的样式做参照物 */
+    position: relative;
+}
+
+.slide img{
+    width: 100%;
+    height: 100%;
+}
+/* 轮播图上的问题 span 绝对定位 定位在fader的下方 距离下方12% */
+/* 字体大小26px 半透明黑色背景 白色字体 调整文字的位置 垂直居中 距离左侧稍微远一些 */
+.slide span{
+    position: absolute;
+    bottom: 12%;
+    font-size: 26px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* width: 100%; */
+    left: 0;
+    right: 0;
+    padding: 5px 0 5px 40px;
+}
+/* ***************************toppic 侧边栏样式******************************* */
+.toppic{
+    width: 32%;
+    float: right;
+    /* height: 600px;
+    border:5px solid red; */
+}
+.toppic>li{
+    position: relative;
+}
+.toppic>li img{
+    width: 100%;
+    height: 252px;
+}
+/* 图片上的文字 */
+/* div 参照li做绝对定位 定位在li下方 宽度占100% 字体白色 半透明深灰色背景 文字距离左侧和上下稍微远一些 */
+/* span 参照Li做绝对定位 定位在li左上 距离左上角20px 半透明深灰色背景 字体水平垂直居中 大小12px 圆角3px */
+.toppic>li div{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 5px 20px;
+}
+.toppic>li span{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    font-size: 12px;
+    padding: 5px 10px; 
+    border-radius: 3px;
+}
+/* 找到最后一个子元素li */
+.toppic li:last-child{
+    margin-top: 20px;
+}

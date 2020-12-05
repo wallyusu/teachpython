@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>博客项目-首页</title>
+    <!-- 引入外部样式文件 -->
+    <link rel="stylesheet" href="../static/css/index.css">
+</head>
+<body>
+    <!-- <div id="header"></div>
+    <div id="main"></div>
+    <div id="footer"></div> -->
+
+
+    <!-- 网页头部内容 -->
+    <header>
+        <!-- nav 导航栏 -->
+        <nav>
+            <h1 class="logo">
+                <a href="#">个人博客</a>
+            </h1>
+            <!-- 导航列表 -->
+            <ul>
+                <li><a href="#">网站首页</a></li>
+                <li><a href="#">文章列表</a></li>
+                <li><a href="#">我的相册</a></li>
+                <li><a href="#">留言</a></li>
+                <li><a href="#">关于我</a></li>
+                <li><a href="#">发表博客</a></li>
+            </ul>
+            <!-- 登录注册 -->
+            <div>
+                <!-- 元素右浮动时 上方的元素先浮动 靠右显示 然后下方的元素再浮动 浮动的顺序是 注册--登录 从左向右看的顺序是 登录--注册-->
+                <a href="#" id="register">注册</a>
+                <a href="#" id="login">登录</a>
+            </div>
+        </nav>
+    </header>
+    <!-- 网页主体内容 -->
+    <main>
+        <!-- 上方轮播图 侧边栏 -->
+        <div>
+            <div class="banner">
+            <!-- 轮播图父元素 -->
+            <ul class="fader">
+                <!-- 每一张轮播的图片 -->
+                <li class="slide">
+                    <a href="#">
+                        <img src="../images/banner03.jpg" alt="">
+                        <span>python - win10下使用定时任务执行程序</span>
+                    </a>
+                </li>
+            </ul>
+            </div>
+        <!-- 右侧侧边栏图片 -->
+            <ul class="toppic">
+                <li>
+                    <a href="#">
+                        <img src="../images/toppic01.jpg" alt="">
+                        <div>linux升级安装py3,安装pip,svn</div>
+                        <span>Linux</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="../images/toppic02.jpg" alt="">
+                        <div>linux升级安装py3,安装pip,svn</div>
+                        <span>Python</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </main>
+    <!-- 网页尾部内容 -->
+    <footer></footer>
+</body>
+</html>

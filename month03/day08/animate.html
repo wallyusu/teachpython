@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>动画效果</title>
+    <style>
+        #item{
+            width:600px;
+            height: 300px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn1">隐藏</button>
+    <button id="btn2">上推</button>
+    <button id="btn3">淡隐</button>
+    <div id="item"></div>
+    <script src="../day08/js/jquery.min.js"></script>
+    <script>
+        // 如果按钮中的文字是隐藏
+        // 隐藏div 然后将按钮的文字改为显示
+        // 如果按钮的文字是显示
+        // 显示div 然后将按钮的文字改为隐藏
+        $('#btn1').click(function(){
+            // $('#item').hide(1000)
+            if ($('#btn1').html() == '隐藏'){
+                $('#item').hide(1000,function(){
+                    $('#btn1').html('显示');
+                });  
+            }else{
+                $('#item').show(1000,function(){
+                    $('#btn1').html('隐藏');
+                });
+            }
+        })
+        // 上推和下拉效果
+        $('#btn2').click(function(){
+            // $('#item').hide(1000)
+            if ($('#btn2').html() == '上推'){
+                $('#item').slideUp(1000,function(){
+                    $('#btn2').html('下拉');
+                });  
+            }else{
+                $('#item').slideDown(1000,function(){
+                    $('#btn2').html('上推');
+                });
+            }
+        })
+        // 淡隐和显示效果
+        $('#btn3').click(function(){
+            // $('#item').hide(1000)
+            if ($('#btn3').html() == '淡隐'){
+                $('#item').fadeOut(1000,function(){
+                    $('#btn3').html('显示');
+                });  
+            }else{
+                $('#item').fadeIn(1000,function(){
+                    $('#btn3').html('淡隐');
+                });
+            }
+        })
+    </script>
+</body>
+</html>

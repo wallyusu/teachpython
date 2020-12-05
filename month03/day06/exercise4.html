@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>随机推荐</title>
+    <style>
+        ul,li{
+            padding:0;
+            margin: 0;
+            list-style: none;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><img src="../day06/imgs/bk0-8.jpg" alt=""></li>
+        <li><img src="../day06/imgs/bk1-8.jpg" alt=""></li>
+        <li><img src="../day06/imgs/bk2-8.jpg" alt=""></li>
+        <li><img src="../day06/imgs/bk3-8.jpg" alt=""></li>
+        <li><img src="../day06/imgs/bk4-8.jpg" alt=""></li>
+    </ul>
+    <script>
+        // 思路一
+        // 生成4个不重复的随机数 放在数组中
+        // var ran = Math.random()
+        // var res = parseInt(ran*(n+1))
+        var randArr = []    // 保存随机数
+        while(randArr.length<5){
+            // 生成随机数
+            var rand = parseInt(Math.random()*10);
+            // 判断随机数是否在数组中
+            // indexOf如果在数组中返回对应的索引值
+        if (randArr.indexOf(rand)==-1){
+                // 如果不在 添加到数组
+                randArr.push(rand);
+            }
+        }
+        console.log(randArr);
+
+        // 通过随机数 拼接出图片路径 '../imgs/bk${num}-8.jpg'
+        var imgs = 
+        document.getElementsByTagName('img');
+        // 遍历数组 取出每一个随机数 拼接成路径
+        for (var i in randArr){
+            // console.log(i)
+            imgs[i].src = `../day06/imgs/bk${randArr[i]}-8.jpg`
+        }
+        // 将拼接的图片路径放在页面上显示
+        // var randArr = ['../day06/imgs/bk0-8.jpg','../day06/imgs/bk1-8.jpg','../day06/imgs/bk2-8.jpg','../day06/imgs/bk3-8.jpg','../day06/imgs/bk4-8.jpg','../day06/imgs/bk5-8.jpg','../day06/imgs/bk6-8.jpg','../day06/imgs/bk7-8.jpg','../day06/imgs/bk8-8.jpg','../day06/imgs/bk9-8.jpg']
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>基本数据类型</title>
+</head>
+<body>
+    <script>
+            // JS 数据类型分成两大类
+            //     基本数据类型
+            //         数据类型    Number
+            //         字符串类型  String
+            //         布尔类型    Boolean
+            //         undefined  undefined
+            //         null       null
+            //     引用数据类型
+            //         对象、函数 
+
+            // 数值类型
+            // 不区分整数类型和浮点数类型  统一都叫数值类型
+
+            // 字符串类型
+            // var str = 'hello'
+            // var str1 = "world"
+
+            // 模板字符串
+            var str = `hello world`
+            console.log(str)
+
+            var name = 'qtx';
+            var age = 18;
+            console.log(name + '今年' + age + "岁")
+            console.log(`${name}今年${age+10}岁`)
+
+            //布尔类型
+            // 1.true  false   全小写
+            // 2.可以和数值类型互换
+            //   true  1
+            //   false 0
+
+            // undefined 和 null
+            // undefined 程序返回值
+            // 通常表示此处应该有值 但是值找不到
+            // 可以吧它当做一个异常情况来看
+
+            // null 主动使用的 清空变量的绑定
+            // undefined是从null演变过来的
+            var className = null;
+            console.log(className)；
+
+            //检测数据类型
+            
+    </script>
+</body>
+</html>

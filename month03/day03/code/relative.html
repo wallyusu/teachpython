@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>relative 相对定位</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            /* 设置相对定位 */
+            position: relative;
+            /* 
+                距离自己原本位置的左侧200像素
+             */
+            /* left: 200px; */
+            /* 
+                如果取值为正 向相反方向移动
+                如果取值为负 向对应方向移动
+             */
+             /* 相对定位不会脱离默认布局方案，
+             在页面中会保留元素的位置 通常都是
+             对元素位置的微调时使用 */
+            right: -100px;
+            bottom: 100px;
+        }
+        p{
+            width:300px;
+            height: 200px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <p></p>
+</body>
+</html>

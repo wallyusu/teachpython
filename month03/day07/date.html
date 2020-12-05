@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>时间</title>
+</head>
+<body>
+    <script>
+        // 不传参数表示当前时间
+        // var now = new Date();
+        // console.log(now)
+        // var y = new Date('2020/11/5 18:00:00') // 或者 var y = new Date(2020,11,5)
+        // console.log(y)
+        // get获取
+        // now.getFullYear()
+        // now.getMonth()
+        // now.getDate()
+        // now.getDay()
+        // 获取时分秒
+        // now.getHours()
+        // now.getMinutes()
+        // now.getSeconds()
+        // set设置
+        // now.setFullYear('1999')
+        // console.log(now)
+
+        // 转换字符
+        // now.toDateString()
+
+        // 获取时间戳 单位毫秒 ms
+        // now.getTime()
+        
+        // 求时间差
+        // 求当前时间到今天18点还有多久
+        // 获取当前时间的时间对象 now
+        var now = new Date();
+        // 获取今天18点的时间对象 end
+        var end = new Date('2020/11/6 18:00:00');
+        // 计算时间差 ms end-now
+        // ms --> s
+        var lefttime = parseInt((end-now)/1000);
+        console.log(lefttime)
+        // 将时间差转换成时分秒显示
+        var h = parseInt(lefttime/3600);
+        var m = parseInt(lefttime % 3600 / 60);
+        var s = lefttime % 60;
+        console.log(`距离18点还有${h}小时${m}分${s}秒`)
+        // 为不足两位的时间单位补零
+        // 7小时 --> 07小时
+        function addZero(num){
+            if (num < 10){
+                return '0'+num
+            }else{
+                return num+''
+            }
+        }
+
+
+    </script>
+</body>
+</html>

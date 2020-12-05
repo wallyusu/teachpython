@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>匿名函数</title>
+</head>
+<body>
+    <script>
+        // 匿名函数 创建匿名函数需要马上调用 匿名函数自调
+        // (function(){
+        //     console.log('hello world')
+        // })()
+        
+        // 将匿名函数作为值使用
+        var sayHello = function(){
+            console.log('hello world')
+        }
+        // 通过变量名找到匿名函数 调用匿名函数
+        sayHello()
+    </script>
+</body>
+</html>

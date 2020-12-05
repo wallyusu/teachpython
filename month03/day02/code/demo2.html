@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #title{
+            /* 权重100 */
+            background-color: red;
+        }
+        .t1{
+            /* 权重10 */
+            background-color: blue;
+        }
+        h1#title{
+            /* 权重1 + 100 */
+            background-color: green;
+        }
+        h1#title:hover{
+            /* 权重1 + 10 */
+            background-color: yellow;。
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title" class="ti">
+        hello world
+    </h1>
+</body>
+</html>

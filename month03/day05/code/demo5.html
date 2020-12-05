@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>作用域</title>
+</head>
+<body>
+    <script>
+        // var a = 10;
+        // function fun(){
+        //     var a = 1; // 如果前面不加var的话 a即为全局变量，故下方执行函数后打印为1
+        //     var b = a = c = 1;
+        //     console.log(b,a,c); //1,1,1
+        //     console.log(a); //1
+        // }
+        // fun();
+        // console.log(a); //10
+        // console.log(b,a,c); //b is not defind 因为b被声明了，为局部变量，故无法识别出
+        // console.log(a,c); //1,1
+
+        // function fun(){
+            // var a,b,c = 1
+            // 三个都声明了 但只有c有值
+        //     console.log(a,b,c)//undefined undefined 1
+        // }
+        // fun()
+        // console.log(a); //
+        // console.log(b); //
+        // console.log(c); //
+
+        var a = 10;
+        function fun(a){
+            a++;
+            console.log(a); //2
+        }
+        // fun(1);
+        // 将全局变量作为参数传入函数 在函数内部的修改不会影响原本的值 只用不改
+        // 想要修改全局变量 不需要参数直接使用
+        fun(a);
+        console.log(a); //10
+    </script>
+</body>
+</html>

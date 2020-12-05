@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组方法</title>
+</head>
+<body>
+    <script>
+        var arr = [68,200,7,15,33]
+        arr.sort(function(a,b){
+            return a-b
+        })
+        console.log(arr)
+        // 回调函数
+        // function asc(a,b){
+        //     return a-b
+        // }
+        // arr.sort(asc)
+        // console.log(arr)
+        
+
+        // function desc(a,b){
+        //     return b-a
+        // }
+        // arr.sort(desc)
+
+        // var arr = [0,1,2,3,4]
+        // arr.reverse()
+        // console.log(arr)
+
+        // 数组转字符串
+        // var str = arr.toString()
+        // console.log(str,arr)
+
+        // var date = [2020,11,5]
+        // console.log(`${date[0]}/${date[1]}/${'0'+date[2]}`) // 2020/11/05
+        // var str = date.join('/');
+        // console.log(str); //2020/11/05
+
+        // 从索引值为2的位置开始 删除2个元素
+        // var res = arr.splice(2,2);
+        // console.log(res,arr);
+        // 从索引值为2的位置开始 删除2个元素 然后添加2.5,3.14,100,40
+        // var res = arr.splice(2,2,2.5,3.14,100,40);
+        // console.log(res,arr);
+        // 从索引值为2的位置开始 产出0个元素 然后往后添加2.5,3.14,100,40
+        // splice(2,0,2.5,3.14,100,40);
+        // console.log(res,arr);
+
+
+        // arr.push(5)
+        // arr.push(6,7)
+        // console.log(arr);
+        // var res = arr.pop()
+        // console.log(res,arr)
+
+        // arr.unshift(-1,-2)
+        // console.log(arr)
+        // arr.shift()
+        // arr.shift()
+        // console.log(arr);
+    </script>
+</body>
+</html>

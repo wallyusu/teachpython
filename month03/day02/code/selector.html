@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>选择器</title>
+
+    <style>
+        /* div{
+            color: brown;
+        } */
+        #tip{
+            color: brown;
+        }
+        .center{
+            /* 文本水平对齐 居中对齐 */
+            text-align:center;
+        }
+        /* 定义样式类 */
+        .red{
+            color: aliceblue;
+            background-color: brown;
+        }
+        ul p{
+            height: 50px;
+            background-color: pink;
+            width: 800px;
+        }
+        ul>li>p{
+            background-color: brown;
+        }
+        h1.red{
+            transition: all 4s;
+        }
+        h1.red:hover{
+            background-color: blue;
+            /* 将鼠标移动到标签上时，鼠标变为小手 */
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>
+            <p></p>
+        </li>
+        <li>
+            <p></p>
+        </li>
+        <li>
+            <p></p>
+        </li>
+        <li>
+            <p></p>
+        </li>
+        <li>
+            <p></p>
+        </li>
+    </ul>
+    <!-- h1.red -->
+    <!-- div#tip -->
+    <h1 class="red center">以梦为马，越骑越傻</h1>
+    <div class="center">楼上说的对</div>
+    <p class="red">俺也一样</p>
+    <div id="tip">No bug,old Fe</div>
+</body>
+</html>

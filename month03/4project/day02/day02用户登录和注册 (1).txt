@@ -1,0 +1,70 @@
+一、博客项目遵循的基本的编码步骤：
+    1. 根据用户在地址栏输入的url找到对应的页面。在client中的
+        flask_client.py文件中找。
+    2. 关注页面中前后端的交互。一般需要完成前端向后端发送
+        ajax请求的代码。（url的设计需要符合RESTful规范，包含        前后端交互的数据格式，参考对应模块的文档）。
+    3. 后端代码编写：
+        3.1.url与视图函数的对应关系。
+        3.2 视图函数的实现，一般前后端分离，只会响应数据，不              会响应模板页。数据格式一般是Json格式的数据。
+    4.视图函数(FBV function based View) vs 视图类(CBV)
+       url : http://127.0.0.1:8000/v1/users
+       假设这个url 有GET、POST、PUT请求。一个url就会对应多       个请求。所以，我们就需要在一个视图函数中，分别处理多       个请求了。
+       伪代码：
+        if request.method == 'GET':
+            get请求的处理
+        elif request.method =='POST':
+            post请求的处理
+        elif request.method == 'PUT':
+            put请求处理
+        ...   
+        遇到的问题：函数太庞大，一个函数处理了多件事情。
+        解决办法：采用视图类。一个url和一个视图类对应。
+        视图类中的每一个方法对应于每一个请求方式。
+        def get(self,request):
+              get请求的处理 
+        
+        def post(self,request):
+               post请求的处理  
+ 
+        def put(self,request):
+               put请求的处理  
+        
+        一般性的选择原则：
+        1.一个url有一个或者两个请求方式，选视图函数。
+        2.一个url有两个或两个以上请求方式，选视图类。
+二、注册成功后，将用户信息记录在token中。
+       1. 如果我们使用项目的settings.py模块中的变量时，引入的
+           时Django中的settings 。不要引入项目的settings。
+       2.生成token后，保存到客户端的本地存储中。本地存储的          数据不会自动提交，需要时，通过代码提交。
+       3. 登录功能的实现 
+           难度在于设计符合RESTful风格的url
+           登录功能的操作不是围绕着用户资源的。围绕着token资           源，因为登录成功后，我们创建了一个token。
+           POST ->  v1/tokens   #登录其实就是创建token资源。
+           创建一个token应用，并注册。
+三 用户信息的展示和修改
+    分析：change_info.html中的js代码
+    1. 从本地存储中获取token和username
+    2. 向url:"http://127.0.0.1:8000/v1/users/"+ username,
+        发送异步get请求。
+    3. 发送请求前，设置请求头，请求头的数据为token
+    4. 解读url，要求返回用户名为username的用户信息。
+    5. 成功收到响应后，使用标签和响应的Json数据动态的拼接        出完整的页面。
+    6. 我们的业务逻辑要保证只有登录用户才可修改自己的信息。
+    6.1 http://127.0.0.1:8000/v1/users/tedu?         sign=1&phone=1    
+         在这个url中，查询字符串的值，没有用。前端人员要求
+         根据名称返回对应的值。忽略错误和敏感信息。
+     
+                    
+           
+          
+
+
+
+
+
+
+
+
+  
+    
+    

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>表格</title>
+</head>
+<body>
+    <!-- table>tr*3>td*4 -->
+    <!-- 三行四列的表格 -->
+    <!-- border为增加表格边框-->
+    <!-- cellspacing单元格边距，取消单元格间的距离-->
+    <table border="1px" cellspacing="0">
+        <tr>
+            <!-- colspan 跨列 横向合并-->
+            <td colspan="4">hello world</td>
+            <!-- <td>2</td>
+            <td>3</td>
+            <td>4</td> -->
+        </tr>
+        <tr>
+            <td>21</td>
+            <td>22</td>
+            <!-- rowspan 跨行 纵向合并 -->
+            <td rowspan="2">23</td>
+            <td>24</td>
+        </tr>
+        <tr>
+            <td>31</td>
+            <td>32</td>
+            <!-- <td>33</td> -->
+            <td>34</td>
+        </tr>
+    </table>
+    <table>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>班级</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>roman</td>
+                <td>18</td>
+                <td>2010</td>
+            </tr>
+        </tbody>
+
+    </table>
+</body>
+</html>

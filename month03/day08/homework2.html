@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>级联下拉菜单</title>
+</head>
+<body>
+    <select name="" id="prove">
+        <option value="">请选择</option>
+    </select>
+    <select name="" id="city">
+        <option value="">请选择</option>
+    </select>
+    <select name="" id="area">
+        <option value="">请选择</option>
+    </select>
+    <script src="../day08/js/jquery.min.js"></script>
+    <script src="../day08/js/data.js"></script>
+    <script>
+        console.log(data)
+        // var arr = [
+        //     {
+        //         'cityId':101,
+        //         'cityName':'北京',
+        //         'areas':['东城','朝阳']
+        //     },
+        //     {
+        //         'cityId':102,
+        //         'cityName':'上海',
+        //         'areas':['黄浦','静安']
+        //     }
+        // ]
+        // var arr = ['北京','上海','深圳']
+        // 遍历数组 取出数据拼接字符串 放入页面中
+        $.each(data,function(i,e){
+            $('#prove').append(`<option value="${e.provId}">${e.provname}</option>`)
+        });
+
+        $('#prove').on('change',function(){
+            $.each(data,function(i,e){
+                if($('#prove').val() == e.provId){
+                    // 重置
+                    $('#city').html('<option value="">请选择</option>')
+                    console.log(e.citys)
+                    $.each(e.citys,function(i,c){
+                        $('#city').append(`<option value=${c.cityId}">${c.cityname}</option>`)
+                        
+                        $('#city').on('change',function(){
+                            $.each(c,function(i,a){
+                                if($('#city').val() == c.cityId){
+                                    $('#area').html('<option value="">请选择</option>')
+                                    console.log(a.areas)
+
+                                    $.each(a.areas,function(i,b){
+                                        $('#area').append(`<option value=${b.areaId}">${b.areaname}</option>`)
+                                    })
+                                }
+                            })
+                        })
+                        
+                        
+                    })
+                }
+            })
+        })
+    </script>
+</body>
+</html>

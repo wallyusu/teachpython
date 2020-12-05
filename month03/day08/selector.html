@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>选择器</title>
+</head>
+<body>
+    <ul>
+        <li id="first">锄禾日当午</li>
+        <li>汗滴禾下土</li>
+        <li>谁知盘中餐</li>
+        <li>粒粒皆辛苦</li>
+    </ul>
+    <script src="../day08/js/jquery.min.js"></script>
+    <script>
+        // 所有li中 除了第一个li的其他元素居中
+        // $('li:not(li:first)').css('text-align','center');
+        // 索引值大于1的 字体大小30px
+        // $('li:gt(1)').css('font-size','30px');
+        // 索引值小于2的 字体大小30px
+        // $('li:lt(2)').css('font-size','30px');
+        // 索引值为奇数的li 第二个1 第四个3
+        // $('li:odd').css('color','red');
+         // 索引值为偶数的li 第二个0 第三个2
+        // $('li:even').css('color','blue');
+        // 索引值等于0的li
+        // $('li:eq(0)').css('color','green');
+        // 索引值第几个li
+        // $('li').eq(0).css('color','yellow');
+        // 所有li中的第一个
+        // $('li:first').css('color','red');
+        // 所有li中的最后一个
+        // $('li:last').css('color','red');
+        // 找#first后相邻的第一个li
+        // $('#first+li').css('color','red');
+        // 找#first后所有的li
+        // $('#first~li').css('color','red');
+    </script>
+</body>
+</html>

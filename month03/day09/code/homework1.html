@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>二级联动下拉菜单</title>
+</head>
+
+<body>
+    <select name="" id="city">
+        <option value="">请选择</option>
+    </select>
+    <select name="" id="area">
+        <option value="">请选择</option>
+    </select>
+
+    <script src="../js/jquery.min.js"></script>
+    <script>
+        var data = [
+            {
+                'cityId': 101,
+                'cityName': '北京',
+                'areas': [
+                    {
+                        'areaId': 10100,
+                        'areaName': '东城'
+                    }, {
+                        'areaId': 10101,
+                        'areaName': '西城'
+                    }
+                ]
+            },
+            {
+                'cityId': 102,
+                'cityName': '上海',
+                'areas': [
+                    {
+                        'areaId': 10200,
+                        'areaName': '浦东'
+                    },
+                    {
+                        'areaId': 10201,
+                        'areaName': '静安'
+                    }
+                ]
+            },
+        ]
+        var $city = $('#city');
+        var $area = $('#area');
+        // 09:55~10:10
+        // 先加载城市下拉菜单
+        $.each(data, function (i, city) {
+            $city.append(`<option value="${city.cityId}">${city.cityName}</option>`)
+        })
+        // 当城市下拉菜单值发生改变时，加载对应的地区
+        $city.on('change', function () {
+            // 所有数据都在data中
+            // 遍历data 如果下拉菜单$city的值和data中的当前city对象的cityId相等时 说明找到用户选择的城市对象 可以通过city.areas获取所有城市对应的地区
+            $.each(data, function (i, city) {
+                if($city.val() == city.cityId){
+                    // console.log(city.areas)
+                    // 每次城市发生改变时 还原地区下拉菜单
+                    $area.html('<option value="">请选择</option>')
+                    // 10:40
+                    // 遍历city.areas 
+                    // 将areas中的对象取出拼接成option 
+                    // 添加到页面$('#area')上
+                    $.each(city.areas,function(i,area){
+                        $area.append(`<option value="${area.areaId}">${area.areaName}</option>`)
+                    })
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

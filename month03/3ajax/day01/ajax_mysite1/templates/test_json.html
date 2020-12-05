@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Json</title>
+</head>
+<body>
+<script src="/static/js/jquery-1.11.3.js"></script>
+<button id="btn">TestJson</button>
+</body>
+<script>
+    $(function(){
+        $('#btn').click(function(){
+<!--        1 json对象-->
+            var json_obj = {
+                "username":"tedu",
+                "age":18
+            };
+            console.log(json_obj.username);
+            console.log(json_obj.age);
+<!--        2 json数组-->
+            var json_arr = [{
+                "username":"tedu",
+                "age":18
+            },
+            {
+                "username":"tarena",
+                "age":20
+            }];
+<!--            遍历JQuary中的数组 index代表元素的下标，obj代表遍历出来的元素-->
+            $(json_arr).each(function(index,obj){
+                console.log(index,obj.username,obj.age);
+            });
+<!--            遍历JS中的普通数组-->
+            $.each(json_arr,function(i,o){
+                console.log(i,o.username,o.age);
+            });
+        })
+    })
+</script>
+</html>

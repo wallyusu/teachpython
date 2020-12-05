@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>页面操作</title>
+    <style>
+        .red{
+            background-color: red;
+        }
+        .blue{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <!-- div#d1.red -->
+    <div id="d1" class="red"></div>
+    <script>
+        // 1.查找元素
+        // console.log(d1)
+        var d1 = document.getElementById('d1')
+        console.log(d1);
+
+        var div =
+        document.getElementsByTagName('div')
+        // 通过标签名查找 找到的内容可能是一个也可能是多个 所以返回一个HTML元素集合 可以通过索引值获取对应位置的元素
+        console.log(div[0]);
+
+        var red = 
+        document.getElementsByClassName('red')
+        console.log(red[0]);
+
+
+        // 2.操作元素
+        // 获取内容 修改内容
+        console.log(d1.innerText)
+        console.log(d1.innerHTML)
+        d1.innerHTML = '你好 世界'
+
+    </script>
+    <script>
+        // 操作页面元素属性
+        console.log(d1.getAttribute('id'))
+        console.log(d1.id)
+        // 当div被点击时 修改class属性值为blue
+        d1.onclick = function(){
+            // 判断div现在是否为红色
+            // 如果是 变蓝 如果不是 变红
+            if (d1.className == 'red'){
+                d1.className = 'blue';
+            }else{
+                d1.className = 'red';
+            }
+        }
+    </script>
+</body>
+</html>

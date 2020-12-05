@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #cart{
+            width: 150px;
+            height: 30px;
+            border: 1px solid #999;
+            background-color: #eee;
+            /* 设置相对位置 为子元素的绝对定位做参照物 */
+            position: relative;
+            float: right;
+        }
+        #cart>div{
+            color: #666;
+            text-align: center;
+            line-height: 30px;
+        }
+        #cart>span{
+            /* 调整子元素在父元素中的绝对位置 */
+            position: absolute;
+            right: 4px;
+            top: 5px;
+        }
+        #cart>i{
+            width: 16px;
+            height: 16px;
+            background-color: #f00;
+            color: #fff;
+            /* 字体大小 水平垂直居中 加粗
+            取消倾斜 */
+            font-size: 12px;
+            text-align: center;
+            line-height: 16px;
+            font-weight: bold;
+            font-style: normal;
+            /* 调整形状(设置三边圆角) 调整绝对位置 */
+            border-radius: 50% 50% 50% 0;
+            position: absolute;
+            right: 17px;
+            top: -5px;
+        }
+    </style>
+</head>
+<body>
+   <div id="cart">
+       <div>我的购物车</div>      
+        <span> > </span>
+        <i>1</i>
+   </div>
+</body>
+</html>

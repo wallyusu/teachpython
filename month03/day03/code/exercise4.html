@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>练习</title>
+    <style>
+        /* 1.设置图片的大小和父元素大小一致
+           2.设置.text样式
+           将半透明的黑色背景 白色字体
+           将.text通过绝对定位的方式定位到父元素下方
+           
+           调整文字距离 .text的大小 */
+           .toppic{
+                width: 240px;
+                height: 132px;
+                /* border:1px solid red; */
+                position: relative;
+           }
+           .text{
+               background-color: rgba(0, 0, 0, 0.5);
+               left: 0;
+               right: 0;
+               bottom: 0;
+               color: white;
+               position: absolute;
+               font-size: 14px;
+               padding: 2px 0 2px 5px;
+           }
+    </style>
+</head>
+<body>
+    <div class="toppic">
+        <img src="../imgs/img02.png" alt="">
+        <div class="text">三星再现关闭手机工厂风波</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>表单控件的使用</title>
+</head>
+<body>
+    <!--
+         表单控件可以单独使用 也可以配合表单元素一起使用
+         表单元素有提交数据的功能，单独使用需要自定义提交
+         数据的方式
+    -->
+    <!-- 表单元素 form -->
+    <form action="",method="POST">
+        <p>
+            姓名： <input type="text"
+            name="username" value="xwb">  
+        </p>
+        <p>
+            密码： <input type="password"
+            name="pwd">
+        </p>
+        <p>
+        </p>
+        <p>
+            性别： <input name="sex" type="radio" value="0">男
+            <input name="sex" type="radio" value="1">女
+        </p>
+        <p>
+            头像： <input name="pic"type="file">
+        </p>
+        <p>
+            地区：
+            <select name="area" id="">
+                <option value="101">
+                    北京
+                </option>
+                <option value="102">
+                    深圳
+                </option>
+            </select>
+        </p>
+        <p>
+            其他： <textarea name="other" 
+            id="" cols="30" rows="10"></textarea>
+        </p>
+        <input type="submit">
+    </form>
+</body>
+</html>

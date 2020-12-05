@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* 清除列表的默认样式 */
+        ul{
+            margin: 0;
+            padding: 0;
+            /* 清除小圆点 */
+            list-style-type: none;
+        }
+        /* 让li水平排列 float */
+        li{
+            float: left;
+            margin: 0 10px;
+        }
+        /* 调整li之间的距离 
+           调整元素内容和边框的距离 padding 
+           调整元素和其他元素的距离 margin 
+        */
+        /* 设置特殊样式 */
+        .first{
+            color: #999;
+        }
+        /* 调整边距和大小 单独列一个类进行设置 */
+        .item{
+            /* 设置元素边距 上下 和 左右 */
+            padding:0 5px;
+            /* 过渡 */
+            transition: all 0.5s;
+        }
+        .item:hover{
+            background-color: red;
+            color: white;
+            /* 指针变成小手形状 */
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="first">难度：</li>
+        <li class="item">全部</li>
+        <li class="item">初级</li>
+        <li class="item">中级</li>
+        <li class="item">高级</li>
+    </ul>
+
+    <script>
+        // 查找页面元素 全部 - 高级
+        var items =
+        document.getElementsByClassName('item')
+        // console.log(items[0])
+        // console.log(items[1])
+        // console.log(items[2])
+        // console.log(items[3])
+        // 使用for 便利items
+        // for(var i=0;i<items.length;i++){
+            // console.log(items[i])
+            // items[i].onclick = (function(i){
+            // var i = 10
+    //         return function(){
+    //             console.log('hello '+ i)
+    //         }
+    //     })(i)
+    // }
+
+        for (var j = 0; j <items;j++){
+            items[i].className = 'item'
+        }
+
+        this.className = 'item active'
+        
+    </script>
+</body>
+</html> 

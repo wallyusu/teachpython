@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>跨域测试</title>
+</head>
+<script src="/static/js/jquery-1.11.3.js"></script>
+<body>
+<button id="btn">跨域测试</button>
+</body>
+<script>
+    // 1 预留函数
+    function print(data){
+        console.log(data);
+    }
+    // 2 跨域提交的代码
+    $(function(){
+        $('#btn').click(function(){
+            /*
+            // 一、 js方式
+            var body = document.getElementsByTagName('body')[0];
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.src='http://localhost:8000/cross_server?callback=print';
+            body.append(script);
+            */
+            // 二、json方式
+            /*
+            $.ajax({
+                url:'http://localhost:8000/cross_server_json',
+                type:'get',
+                dataType:'jsonp', // 指定为跨域访问
+                jsonp:'callback',
+                jsonpCallback:'print',
+
+            });
+            */
+            // 三、 jsonp 极简方式
+            $.ajax({
+                url:'http://localhost:8000/cross_server_json',
+                type:'get',
+                dataType:'jsonp',
+                success:function(data){
+                    console.log('-json super-');
+                    console.log(data);
+                }
+            })
+        });
+    })
+
+</script>
+</html>

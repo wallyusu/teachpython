@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>运算符</title>
+</head>
+<body>
+    <script>
+        //赋值运算
+        //var age = 18
+        
+        //算数运算
+        //1+0
+        // console.log(true+false);//1
+        // console.log(undefined+1);//NaN
+        // console.log(12/0);//Infinity
+
+        //复合运算
+        // var num = 10;
+        //num+=5 --> num = num + 5
+        // console.log(num+=5);
+        // console.log(num);
+
+        // console.log(10+=5);
+
+        //自增自减
+        // var num = 10
+        //将自增运算符卸载后面 后缀
+        // console.log(num++);//10
+        // console.log(num);//11
+        //将自增运算符写在前面 前缀
+        // console.log(++num);//12
+        // console.log(num);//12
+
+        // num+=1; 
+        // var i = 0;
+        // i的值    0    1     2
+        //       i++ + ++i + i++
+        // 表达式   0    2     2
+        // console.log(i++ + ++i + i++);
+
+        // var num = 10;
+        // num--;
+        // console.log(num);
+        // var res = ++num - num-- + num++
+        // console.log(res);//10
+
+        // 比较运算
+        // 1.字符串之间的比较
+        // console.log('abc'>'bcd');//false
+        // 2.其他情况 转数值 比较数值大小
+        // console.log('18'>true);//true
+
+        // undefined<0 --> NaN<0
+        // console.log(undefined<0);//false
+
+        //'18'== 18 --> 18 == 18
+        // console.log('18' == 18);//true
+        // console.log('18' === 18);//false
+
+        // 特殊值
+        // console.log(NaN == NaN);//false(NaN与任何值做比较都是false)0
+        // console.log(1>null);//true
+        // 做等值判断时（==/===） null不会转换类型
+        // console.log(null == 0);//false
+        // null和undefined相等但不全等
+        // console.log(null == undefined);//true
+        // console.log(null === undefined);//false
+
+
+        // 逻辑运算
+        // and --> &&
+        // or --> ||
+        // not --> !
+
+        // 逻辑与
+        // 条件1 && 条件2
+        // 条件1与条件2全部为true 结果才为true 一假全假
+
+        // 逻辑或
+        // 条件1 || 条件2
+        // 条件1与条件2有一个为true 结果就为true 一真俱真
+
+        // 逻辑非
+        // !条件
+        // 相反
+
+        // 短路逻辑
+        // var age = 18;
+        // 对于逻辑或来说
+        // 如果第一个条件为真 后面的代码会被忽略
+        // age >= 18 || console.log(哈哈哈);
+        // 对于逻辑与来说
+        // 如果第一个条件为假 后面的代码会被忽略
+        // age < 18 && console.log(哈哈哈);
+
+        // 如果年龄到18 打印成年啦
+        // 否则什么都不做
+        // age >= 18 && console.log('成年啦')；
+
+        // var year = 2000;
+        // 写出求闰年的表达式
+        // year % 4 == 0 and year % 100!= 0 or year %400 == 0;
+        // var res = year % 4 == 0 && year % 100!= 0 || year %400 == 0;
+        // console.log(res)
+
+        // 三目运算
+        // var a = 10;
+        // var b = 20;
+        // a>b?console.log(a):console.log(b);
+
+        // 接收用户的输入 输入一个年份
+        // 判断是否为闰年
+        var year = prompt('请输入一个年份');
+        year % 4 == 0 && year % 100!= 0 || year %400 == 0 ? console.log('是闰年'):console.log('不是闰年');
+
+    </script>
+</body>
+</html>

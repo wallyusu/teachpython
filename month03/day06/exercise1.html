@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="email" placeholder="请输入邮箱">
+    <button id="parse">解析</button>
+    <h1 id="show">
+        显示用户名和服务商
+    </h1>
+    <script>
+        // 当按钮解析被点击时
+        // 获取文本框中用户输入的邮箱 解析出用户和服务商在h1中显示
+        // 如 shibw@tedu.cn
+        // 显示：用户名shibw，服务商tedu.cn
+        var email = 
+        document.getElementById('email')
+        var parse = 
+        document.getElementById('parse')
+        var show = 
+        document.getElementById('show')
+        parse.onclick = function(){
+            var str = email.value;
+            var arr = str.split('@')
+            var res = `用户名: ${arr[0]}  服务商: ${arr[1]}`
+            // var index = str.indexOf('@')
+            // var res = `用户名: ${str.substring(0,index)},服务商: ${str.substring(index+1,email.length)}`
+            show.innerHTML = res
+
+        }
+        // 使用indexOf查找@的位置
+        // 截取0-@之间的就是用户名 @之后一直到末尾就是服务商
+        // var str = email.indexOf('@')
+        // console.log(email.substring(0,str))
+        // console.log(email.substring(str+1,email.length))
+    </script>
+</body>
+</html>

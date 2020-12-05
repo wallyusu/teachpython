@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>操作页面内容</title>
+</head>
+<body>
+    <input type="text" id="key">
+    <button id="btn">click me</button>
+    <h1 id="show">xxx</h1>
+
+    <script src="../day08/js/jquery.min.js"></script>
+    <script>
+        // onclick 是JS对象 document的属性，所以jQuery无法直接使用，
+        // jq对象 --> js对象
+        // $('#btn')[0].onclick = function(){
+        //     alert('hello');
+        // }
+
+        $('#btn').click(function(){
+            // 文本框的内容
+            // var text = $('key').val();
+            // show.innerHTML = text
+            $('#show').html($('#key').val());
+        })
+    </script>
+</body>
+</html>

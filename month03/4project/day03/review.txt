@@ -1,0 +1,80 @@
+一、 回顾
+    1. 前后端分离
+        1.1 ddblog后端，8000端口，没有Template.
+        1.2 blog_client 前端，5000端口，不包含业务逻辑，几乎全部为html css img js等。
+        1.3 前后端分离后，学会如何调试
+    2. 注册功能（注册并登录）
+        在url.py中：
+        2.1 FBV-基于函数的视图
+            path(url,视图函数)
+            RESTful风格的url:v1/users,一个url对应多个请求方式,GET PUT POST等。一个视图函数需要做多件事情。
+        2.2 CBV-基于类的视图
+            url:v1/users 与视图对应
+            path(url,视图类.as_view())
+            url+请求方式对应的视图类中的方法
+            如果根据请求方式找不到视图类中的方法，返回405.
+    3. 登录功能
+        掌握token的生成与效验
+
+    4. 用户信息修改
+        4.1 只能够去修改哪个用户信息，(登录用户)
+        4.2 谁去修改用户信息(登录用户)
+            两个条件合到一起，就是只有登录用户修改自己信息
+        4.3 change_info.html页面
+            修改的用户信息，不是从地址栏读的，而是从本地存储中读取的信息。所以，只能修改登录用户的信息。
+            4.3.1 第一次ajax拿用户信息通过js动态生成页面。
+            4.3.2 点击上传按钮，发第二次ajax请求，上传头像。
+                  username 也是从本地存储中获取的
+                  var url = 'http://127.0.0.1:8000/v1/users/' + username + '/avatar'
+                  请求方式 POST
+                  发送请求前，设置请求头中包含token.
+                  // 刷新页面，目的是能看到修改后的图片
+                  window.location.reload();
+                  4.1 后端
+                  先写登录检查的装饰器
+                  4.2 修饰上传图片的函数
+                  思考：现在的url符合RESTful风格吗？
+
+            4.3.3 点击保存按钮，发第三次ajax请求，修改信息。
+                  url:"http://127.0.0.1:8000/v1/users/" + username,
+                  请求方式是put
+                  发送请求前，设置请求头，带着token
+            4.3.4 如何使用函数装饰器修饰方法的装饰器
+                  使用django提供的另外一个装饰器
+                  @method_decorator,给方法装饰器包装一下
+    5. 以上是修改用户的功能。username从本地存储来的，然后增加了装饰器对token的效验，所以确保了用户修改自己的信息。
+       还有一个显示用户信息的页面。这个页面是任何人在地址栏输入用户名，都可以看到信息。这个页面对应的是about.html
+       游客可以看所有人的信息
+    6. 通过短信验证码验证用户输入的手机号的真实性
+       我们选择的是【容联云】
+       accountid:  8a216da875e463e00176275576ab16db
+       token:      48eae267accb48588b6b495242c52e3f
+       urls:       https://app.cloopen.com:8883
+       appID:      8a216da875e463e001762755779d16e1
+       MD5加密：hash加密，为十六进制32(hexdigest)位和二进制128位(digest)两种。
+       6.1 拼接出业务url： BseUrl+业务url
+           6.1.1 生成时间戳
+           6.2.2 计算Sig参数 Md5(...)
+           6.3.3 拼接url,并返回
+       6.2 构造HttpRequest包的包头
+           6.2.1 计算Authorization  base64(...)
+           6.2.2 构造完整的包头
+       6.3 请求包的包体
+       ---------------------------------------------------------------------------------
+       总结：
+       1. request的各个属性
+          request.GET: 获取查询字符串
+          request.POST: 获取表单元素的值
+          request.FILES: 获取文件
+          request.META: 获取请求的元数据（例如获取token）
+          request.body: 获取json串数据
+
+       2. 客户端向服务端传参方式
+          2.1 查询字符串 ?name=value
+          2.2 path转换器
+       3. 设置本地存储
+          BOM对象和document对象
+          window.localStorage.setItem/GetItem('...','...')  # 本地存储token
+          window.location.href = url # 一般为相对地址
+          window.location.reload()  # 重新加载
+

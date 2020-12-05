@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>分离事件绑定</title>
+</head>
+<body>
+    <input id="btn" type="button" value="click me" onclick="fun()">
+
+    <script>
+        // 查找页面元素
+        // 通过文档对象模型提供的方法查找页面元素
+        // document文档对象
+        // 通过id查找页面中唯一的元素
+        // 传入元素的id值 返回一个查找到的dom对象
+        var btn = document.getElementById('btn');
+        // 在document对象看来 页面中所有的元素都是对象
+        // 写在页面元素对象中的属性都是这个对象的属性 就可以通过对象操作来访问或修改属性
+        console.log(btn);
+        console.log(btn.id);
+        console.log(btn.value);
+        btn.value = '点我'
+        // btn.onclick 是一个function,写在标签属性中的内容会自动在funcition中，当用户
+        // 点击按钮触发事件时 辅助线程会将function推送给主线程执行
+        console.log(btn.onclick)
+        // 分离绑定事件 其实就是重写函数 替换默认的function 触发事件后 辅助线程会将重写的函数推给主线程执行
+        // function fun(){
+        //     alert('登录成功')
+        // }
+        btn.onclick = function(){
+            alert('登录成功')
+        }
+        // console.log(btn.onclick)
+
+
+        function fun(){
+            alert('hello world')
+        }
+    </script>
+</body>
+</html>

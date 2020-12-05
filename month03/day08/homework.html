@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>级联下拉菜单</title>
+</head>
+<body>
+    <select name="" id="city">
+        <option value="">请选择</option>
+    </select>
+        <!-- <option value="">北京</option>
+        <option value="">上海</option> -->
+    <select name="" id="area">
+        <option value="">请选择</option>
+    </select>
+    <script src="../day08/js/jquery.min.js"></script>
+    <script src="../day08/js/data.js"></script>
+    <script>
+        console.log(data)
+        var arr = [
+            {
+                'cityId':101,
+                'cityName':'北京',
+                'areas':['东城','朝阳']
+            },
+            {
+                'cityId':102,
+                'cityName':'上海',
+                'areas':['黄浦','静安']
+            }
+        ]
+        // var arr = ['北京','上海','深圳']
+        // 遍历数组 取出数据拼接字符串 放入页面中
+        $.each(arr,function(i,e){
+            $('#city').append(`<option value="${e.cityId}">${e.cityName}</option>`)
+        })
+        $('#city').on('change',function(){
+            $.each(arr,function(i,e){
+                if($('#city').val() == e.cityId){
+                    // 重置
+                    $('#area').html('<option value="">请选择</option>')
+                    console.log(e.areas)
+                    $.each(e.areas,function(i,area){
+                        $('#area').append(`<option value="">${area}</option>`)
+                    })
+                }
+            })
+        })
+    </script>
+</body>
+</html>

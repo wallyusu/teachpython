@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>轮播图</title>
+    <style>
+        #slider{
+            width:739px;
+            height: 419px;
+            position: relative;
+        }
+        #slider>.item{
+            position: absolute;
+            top: 0;
+            left: 0;
+            /* 透明 */
+            opacity: 0;
+            transition: all 0.5s;
+        }
+        #slider>.item.active{
+            /* 不透明 */
+            opacity: 1;
+        }
+        #ll,#rr{
+            position: absolute;
+            top: 50%;
+            margin-top: -20px;
+        }
+        #rr{
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="slider">
+        <img class="item active" src="../day06/imgs/gm1-6.jpg" alt="">
+        <img class="item" src="../day06/imgs/gm2-6.jpg" alt="">
+        <img class="item" src="../day06/imgs/gm3-6.jpg" alt="">
+        <img class="item" src="../day06/imgs/gm4-6.jpg" alt="">
+        <img class="item" src="../day06/imgs/gm5-6.jpg" alt="">
+        <div>
+            <img id='ll' src="../day06/imgs/l1-6.png" alt="">
+            <img id='rr' src="../day06/imgs/r1-6.png" alt="">
+        </div>
+    </div>
+    <script>
+        var  items = 
+        document.getElementsByClassName('item')
+        // 切换图片
+        function changeImg(index){
+            // 将所有图片变成透明的
+            for (var i = 0;i<items.length;i++){
+                item[i].className = 'item'
+            }
+            // 将当前index的图片变成不透明的
+            // className = 'item active'
+            items[index].className = 'item active';
+        }
+        // changeImg(4);
+        var i = 0; // 当前图片的索引
+        // 当用户点击rr时 向右切换图片
+        rr.onclick = function(){
+            // 0--1--2...4--0
+            // i递增
+            i++;
+            // 如果i的值大于4 将i重置为0
+            if (i>4) i=0;
+            // 切换图片
+            changeImg(i);   
+        }
+        ll.onclick = function(){
+            i--;
+            if (i<0) i=4;
+                changeImg(i)
+        }
+        // 当用户点击ll时 向左切换图片
+    </script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* day03/exercise2.html */
+
+        /* 清除列表的默认样式 */
+        ul {
+            margin: 0;
+            padding: 0;
+            /* 清除小圆点 */
+            list-style: none;
+        }
+
+        /* 14:50~15:05 */
+        /* 让li水平排列 float  */
+        /* 
+           调整li之间的距离
+           调整元素内容和边框的距离 padding
+           调整元素和其它元素的距离 margin
+        */
+        /* 设置特殊样式 */
+        li {
+            float: left;
+            margin: 0 10px;
+        }
+
+        .first {
+            color: #999;
+        }
+
+        .item {
+            padding: 0 3px;
+            /* 过渡 */
+            transition: all 0.5s;
+        }
+
+        .active,
+        .item:hover {
+            color: #fff;
+            background-color: red;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li class="first">难度：</li>
+        <li class="item">全部</li>
+        <li class="item">初级</li>
+        <li class="item active">中级</li>
+        <li class="item">高级</li>
+    </ul>
+    <script src="../day08/js/jquery.min.js"></script>
+    <script>
+        // $('ul').css('border','1px solid red').css('background-color','pink').css('overflow','hidden')
+
+        $('ul').css({
+            'border':'1px solid red',
+            'background-color':'pink',
+            'overflow':'hidden'
+        })
+        $('.item').click(function(){
+            // console.log($(this))
+            // $('.item').removeClass('active');
+            // $(this).addClass('active')
+            // 自己添加class 兄弟们移除class
+            $(this).p
+            // $(this).addClass('active').siblings().removeClass('active')
+            // 切换样式
+            // 如果有就移除样式 如果没有就添加样式
+            $(this).toggleClass('active')
+
+        })
+        // var items = document.getElementsByClassName('item')
+        
+        // for(let i=0;i<items.length;i++){
+        //     items[i].onclick = function(){
+        //         // 当前元素被点击时 
+        //         // 取消所有的items的样式类active
+        //         for(var j = 0;j<items.length;j++){
+        //             items[j].className = 'item'
+        //         } 
+                
+        //         // 为自己添加样式类active
+        //         // this 特殊值 指调用函数的当前对象
+        //         this.className = 'item active'
+        //     }
+        // }
+    </script>
+</body>
+</html>

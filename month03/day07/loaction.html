@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #a{
+            color:blue;
+            text-decoration: underline;
+        }
+        #a:hover{
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+    <span id="a">百度一下</span>
+    <script>
+        // location.reload()
+        // 当span被点击时跳转到百度
+        var a = 
+        document.getElementById('a')
+        a.onclick = function(){
+            console.log(location.href)
+            location.href = 'http://www.baidu.com'
+        }
+    </script>
+</body>
+</html>

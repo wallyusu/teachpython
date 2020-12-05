@@ -1,0 +1,45 @@
+一. 博客项目集成短信验证功能
+    url: POST -> v1/users/sms  # 向此url发送post请求
+    在register.html中,为免费获取验证码按钮增加ajax请求的发送
+    后端的视图函数中：
+    1.随机验证码需要存储到redis中（因redis存在内存中，有有效期。mysql是无有效期的）
+    2.在Django中操作redis的方式：
+      2.1 方案1 python+redis
+          优势：使用灵活;缺点：不带序列化功能。
+      2.2 方案2 Django+redis【选择的方案】
+          优势：自带序列化功能。
+          pip3 freeze|grep -i 'redis' # 代码可以查询redis有无安装
+    3. 完成短信验证后，在注册是检查验证码
+       拿用户输入的验证码与redis中缓存的验证码比对。
+       注意： 从用户输入拿到的验证码是字符串类型，缓存是int
+             比较时，需要做类型转换！！！
+    4. Celery 分布式任务队列，本质上就是一个生产者消费者模型
+       4.1 celery的使用
+           4.1.1 创建celery对象,并配置Celery。
+           4.1.2 编写任务函数
+           4.1.3 启动消费者进程
+           4.1.4 编写生产者代码,向队列中投递任务
+           4.1.5 启动生产者
+       4.2 编写一个带计算结果的celery的使用案例
+           安装一个celery监控工具flower
+           4.3.1安装：
+           sudo pip install flower
+           4.3.2终端启动flower:
+           celery flower -A tasks_result --broker=redis://@127.0.0.1:6379/1
+           4.3.3访问的url：
+           http://localhost:5555/ 可进行监控
+       4.4 django+celery
+           [2020-12-04 17:28:49,183: WARNING/MainProcess] /usr/local/lib/python3.6/dist-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+            leak, never use this setting in production environments!''')
+            # python解释器给出的提示：如果settings为DEBUG的时候，记录会引起内存泄露，不要在生产环境下使用此设置
+            # 在上线之后，一定要把DEBUG改成False
+            内存泄露：如果使用的是python,或者django,java，不会出现内存泄露，因为自带垃圾回收机制
+                    在C++语言中,是在堆当中申请，这种在执行中，内存是不会释放的，通常需要delete释放掉，否则会引起内存泄露。
+                    就怕内存泄露发生在for循环中，会引起严重泄露。celery是基于C++语言，不自带垃圾回收机制，故容易引起泄露。
+       4.5 将celery集成到项目博客中
+           4.5.1 在与项目同名的子目录下，添加celery.py，去创建和配置app。
+           4.5.2 在user应用下，添加tasks.py（消费者）文件，编写任务函数。
+                 在任务函数中，去执行发送短信的功能。完成后，启动消费者进程。
+           4.5.3 在视图函数中，推送任务
+
